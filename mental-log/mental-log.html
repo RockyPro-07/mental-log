@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UFT-8">
+        <title>Mental Log</title>
+        <meta name="rating" content="General">
+        <meta name="robots" content="index,follow">
+        <meta name="googlebot" content="index,follow">
+        <meta name="generator" content="Visual Studio Code">
+        <link rel="stylesheet" href="recursos_css/global.css">
+        <link rel="stylesheet" href="recursos_css/main/cuerpo.css">
+        <link rel="stylesheet" href="recursos_css/header/cabeza.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+        <link rel="shortcut icon" href="recursos_visuales/png/icon-mental_log.png" type="image/x-icon">
+    </head>
+    <body>
+        <header>
+            <div id="i_div-PantPC">
+                <nav id="navegador">
+                    <img src="recursos_visuales/png/logo-clalc.png" alt="Mental Log" width="120" height="120" id="header-imagen">
+                    <h1 id="insertar_texto">Caluladora Estándar</h1>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div id="tcalculadora">
+                <button type="button" name="Estándar" class="c_button-tipo_estandar" id="estandar" onclick="Cambiar_Cientifica_a_Estandar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: 0;">
+                        <path d="M6 22h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2zm3-3H7v-2h2v2zm0-4H7v-2h2v2zm0-4H7V9h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm4 8h-2v-6h2v6zm0-8h-2V9h2v2zM6 4h12v3H6V4z"></path>
+                    </svg>
+                    <span>Estándar</span>
+                </button>
+                <button type="button" name="Científica" class="c_button-tipo_cientifica" id="cientifica" onclick="Cambiar_Estandar_a_Cientifica()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: 0;">
+                        <path d="m13.293 2.707.818.818L3.318 14.318C2.468 15.168 2 16.298 2 17.5s.468 2.332 1.318 3.183C4.169 21.532 5.299 22 6.5 22s2.331-.468 3.182-1.318L20.475 9.889l.818.818 1.414-1.414-8-8-1.414 1.414zm3.182 8.354-2.403-2.404-1.414 1.414 2.403 2.404-1.414 1.415-.99-.99-1.414 1.414.99.99-1.415 1.415-2.403-2.404L7 15.728l2.403 2.404-1.136 1.136c-.945.944-2.59.944-3.535 0C4.26 18.795 4 18.168 4 17.5s.26-1.295.732-1.768L15.525 4.939l3.535 3.535-2.585 2.587z"></path>
+                    </svg>
+                    <span>Científica</span>
+                </button>
+            </div>
+            <div id="calculadora">
+                <div id="pantalla" tabindex="1">
+                    <div id="operacion" ></div>
+                    <div id="resultado"></div>
+                </div>
+                <div id="teclado">
+                    <div class="numeros_simbolos">
+                        <button type="button" name="Borrar Operación" title="Borrar Operación" tabindex="2" class="i_button-fil" id="BorrarOp" onclick="borrarOperacion();">C</button>
+                        <button type="button" name="Borrar Todo" title="Borrar Todo" tabindex="3" class="i_button-fil" id="BorrarOpR" onclick="borrarTodo();">CE</button>
+                        <button type="button" name="Borrar" title="Borrar Resultado" tabindex="4" class="i_button-fil" id="BorrarR" onclick="borrarResultado();">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000" width="24" height="24">
+                                <path d="M12.48 3 7.73 7.75 3 12.59a2 2 0 0 0 0 2.82l4.3 4.3A1 1 0 0 0 8 20h12v-2h-7l7.22-7.22a2 2 0 0 0 0-2.83L15.31 3a2 2 0 0 0-2.83 0zM8.41 18l-4-4 4.75-4.84.74-.75 4.95 4.95-4.56 4.56-.07.08z"/>
+                            </svg>
+                        </button>
+                        <button type="button" name="Sumar" title="Suma" tabindex="5" class="i_button-fil" id="SUMA" onclick=" Simbolo_Suma();">+</button>
+                    </div>
+                    <div class="numeros_simbolos" id="Cientifica">
+                        <button type="button" name="Modulo" title="Modulo" class="i_button-fil" id="MODULO" onclick="Simbolo_Modulo();">%</button>
+                        <button type="button" name="Raíz Cuadrada" title="Raíz Cuadrada" class="i_button-fil" id="RAIZ" onclick="Simbolo_Raiz();">√</button>
+                        <button type="button" name="Potencia" title="Exponenciación" class="i_button-fil" id="POTENCIA" onclick="Simbolo_Potencia();">x^2</button>
+                        <button type="button" name="Pi" title="Pi" class="i_button-fil" id="PI" onclick="Simbolo_Pi();">π</button>
+                    </div>
+                    <div class="numeros_simbolos">
+                        <button type="button" name="7" title="7" tabindex="6" class="i_button-fil" id="BOTON7" onclick="MosNum(7);">7</button>
+                        <button type="button" name="8" title="8" tabindex="7" class="i_button-fil" id="BOTON8" onclick="MosNum(8);">8</button>
+                        <button type="button" name="9" title="9" tabindex="8" class="i_button-fil" id="BOTON9" onclick="MosNum(9);">9</button>
+                        <button type="button" name="Restar" title="Resta" tabindex="9" class="i_button-fil" id="RESTA" onclick="Simbolo_Resta();">-</button>
+                    </div>
+                    <div class="numeros_simbolos">
+                        <button type="button" name="6" title="6" tabindex="10" class="i_button-fil" id="BOTON6" onclick="MosNum(6);">6</button>
+                        <button type="button" name="5" title="5" tabindex="11" class="i_button-fil" id="BOTON8" onclick="MosNum(5);">5</button>
+                        <button type="button" name="4" title="4" tabindex="12" class="i_button-fil" id="BOTON9" onclick="MosNum(4);">4</button>
+                        <button type="button" name="Multiplicación" title="Multiplicación" tabindex="13" class="i_button-fil" id="MULT" onclick="Simbolo_Multiplicacion();">×</button>
+                    </div>
+                    <div class="numeros_simbolos">
+                        <button type="button" name="1" title="1" tabindex="14" class="i_button-fil" id="BOTON1" onclick="MosNum(1);">1</button>
+                        <button type="button" name="2" title="2" tabindex="15" class="i_button-fil" id="BOTON2" onclick="MosNum(2);">2</button>
+                        <button type="button" name="3" title="3" tabindex="16" class="i_button-fil" id="BOTON3" onclick="MosNum(3);">3</button>
+                        <button type="button" name="Divición" title="Dividir" tabindex="17" class="i_button-fil" id="DIVICION" onclick="Simbolo_Divicion();">÷</button>
+                    </div>
+                    <div class="numeros_simbolos">
+                        <button type="button" name="Cambiar simbolo" title="Cambiar simbolo" tabindex="18" class="i_button-fil" id="SIMBOLO" onclick="cambiarSigno();">±</button>
+                        <button type="button" name="0" title="0" tabindex="19" class="i_button-fil" id="BOTON0" onclick="MosNum(0);">0</button>
+                        <button type="button" name="Punto Decimal" title="Agregar Punto Decimal" tabindex="20" class="i_button-fil" id="DECIMAL" onclick="decimal();">.</button>
+                        <button type="button" name="Divición" title="Resultado" tabindex="21" class="i_button-fil" id="i_button-igual" id="RESULTADO" onclick="calcularResultado();">=</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="recursos_js/main/cuerpo.js"></script>
+        <script>
+
+//function calcularResultado() {
+    //try {
+      //  let expresion = document.getElementById("operacion").innerText;
+  //      if (/[^0-9+\-*/().]/.test(expresion)) {
+    //        throw new Error("Entrada inválida");
+        /*}
+        document.getElementById("resultado").innerText = eval(expresion);
+    } catch (e) {
+        alert("Error en la operación");
+        borrarTodo();
+    }
+}*/
+
+function calcularCientifica(func) {
+    let valor = parseFloat(document.getElementById("operacion").innerText);
+    if (isNaN(valor)) {
+        alert("Ingrese un número válido");
+        return;
+    }
+    let resultado;
+    switch (func) {
+        case 'sqrt': resultado = Math.sqrt(valor); break;
+        case 'pi': resultado = Math.PI; break;
+        case 'exp': resultado = Math.exp(valor); break;
+        default: return;
+    }
+    document.getElementById("resultado").innerText = resultado;
+}
+        </script>
+        <!--<script>
+            function mostrarElemento_E() {
+            const elemento = document.getElementById("cientifica");
+            const altura = document.getElementById("i_div-Calculadora");
+            if (elemento && altura) {
+            elemento.style.display = 'none';
+            altura.style.height = '650px';
+            } else {
+            console.error(`No se encontró el elemento con ID: ${elemento} y ${altura}`);
+            }
+
+            }
+
+            function mostrarElemento_C(id) {
+                const elemento = document.getElementById("estandar");
+                const altura = document.getElementById("i_div-Calculadora");
+                if (elemento && altura) {
+                elemento.style.display = 'flex';
+                altura.style.height = '720px';
+                } else {
+                    console.error(`No se encontró el elemento con ID: ${elemento} y ${altura}`);
+                }
+            }
+        </script>
+        <script>
+            let Span = document.createElement("h1");
+            let EDiv = document.getElementById("i_div-operacion");
+            function mostrar(num) {
+                if(EDiv) {
+                    Span.textContent = num;
+                    EDiv.appendChild(Span);
+                } else {
+                    console.error("El elemento con ID 'i_div-operacion' no existe.");
+                }
+            }
+        </script>-->
+    </body>
+</html>

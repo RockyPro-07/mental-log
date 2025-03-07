@@ -1,0 +1,26 @@
+header {
+    background-color: rgba(0, 96, 186, 0.836);
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    /*box-shadow: -2px 2px 20px 3px;*/
+    margin-bottom: 40px;
+    height: 120px;
+    width: auto;
+
+    & #navegador {
+        justify-content: center;
+        display: flex;
+
+        & #header-imagen {
+            border-radius: 100%;
+        }
+
+        & #insertar_texto {
+            justify-content: center;
+            align-items: center;
+            margin-left: 25px;
+            font-size: 40px;
+            display: flex;
+        }
+    }
+}
